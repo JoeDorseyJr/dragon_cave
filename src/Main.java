@@ -8,7 +8,7 @@ public class Main {
         int doorNumber = 0;
         do {//Runs the game continuously.
             int friendlyDoor = caveNumber();//Store the winning door.
-            do {//Ensure the correct input (int) is gathered.
+            do {//Validates the correct input (int).
                 try {//Start game and collect the user input.
                     gameStart();
                     doorNumber = userInput.nextInt();
@@ -17,7 +17,7 @@ public class Main {
                     userInput.nextLine();
                     doorNumber = 0;
                 }
-            } while (doorNumber != 1 && doorNumber != 2); //End of ensuring the input.
+            } while (doorNumber != 1 && doorNumber != 2); //End of validating the input.
 
             boolean win = friendlyDoor == doorNumber;
 
@@ -33,6 +33,7 @@ public class Main {
     }
 
     public static boolean playAgain(){
+        /** Queries the user if they want to continue playing and outputs a true or false. */
        boolean run = true;
        String ans;
         do {//Ensure the correct input is gathered.
@@ -50,12 +51,12 @@ public class Main {
     }
 
     public static int caveNumber(){
-        ///Randomly outputs an integer equal to 1 or 2.
+        /** Randomly outputs an integer equal to 1 or 2. */
         return (int) Math.round(Math.random()+1);
     }
 
     public static void gameStart(){
-        ///Prints the initial message to the screen.
+        /** Prints the initial message to the screen. */
         String message1 = "\nYou are in a land full of dragons. In front of you, you see two caves.\nIn one cave, the dragon is friendly and will share his treasure with you.\nThe other dragon is greedy and hungry and will eat you on sight.";
         String message2 = "Which cave will you go into? \u001B[1m(1 or 2)?\u001B[0m\n";
         System.out.println(message1);
@@ -63,7 +64,7 @@ public class Main {
     }
 
     public static String resultsMessage(boolean win) throws InterruptedException {
-        ///Take in a boolean to determine which message should be displayed.
+        /** Takes in a boolean to determine which message should be displayed. */
         String[] messages = {"\nYou approach the cave...","It's dark and spooky...","A large dragon jumps out in front of you! He opens his jaws and..."};
         int delay = 1750;
 
