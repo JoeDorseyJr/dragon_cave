@@ -5,7 +5,7 @@ public class Main {
 
     public static void main(String[] args) {
         boolean play = true;
-        int doorNumber = 0;
+        int doorNumber;
         do {//Runs the game continuously.
             int friendlyDoor = caveNumber();//Store the winning door.
             do {//Validates the correct input (int).
@@ -35,18 +35,22 @@ public class Main {
     public static boolean playAgain(){
         /** Queries the user if they want to continue playing and outputs a true or false. */
        boolean run = true;
-       String ans;
+       String ans ="";
         do {//Ensure the correct input is gathered.
             System.out.println("\nWould you like to play again? (Y or N)");
-            ans = userInput.next();
-            if (ans.equalsIgnoreCase("y") || ans.equalsIgnoreCase("n")){
-                run = false;
+            try {
+                ans = userInput.next();
+                if (ans.equalsIgnoreCase("y") || ans.equalsIgnoreCase("n")) {
+                    run = false;
+                }
+                if (ans.equalsIgnoreCase("n")) {
+                    System.out.println("Good-bye!");
+                }
+            } catch (Exception e){
+                System.err.println("playAgain input error. Wrong input type.");
             }
         } while (run);
 
-        if (ans.equalsIgnoreCase("n")) {
-            System.out.println("Goodbye!");
-        }
         return ans.equalsIgnoreCase("Y");
     }
 
