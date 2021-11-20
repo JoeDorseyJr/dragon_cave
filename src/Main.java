@@ -64,14 +64,14 @@ public class Main {
     }
 
     public static String resultsMessage(boolean win) throws InterruptedException {
-        /** Takes in a boolean to determine which message should be displayed. */
+        /** Takes in a boolean to determine which message should be returned. */
         String[] messages = {"\nYou approach the cave...","It's dark and spooky...","A large dragon jumps out in front of you! He opens his jaws and..."};
         int delay = 1750;
 
         for (String message : messages) {
             System.out.println(message);
             Thread.sleep(delay);
-            delay += 500;
+            delay += 500;//add suspense and drama
         }
 
         if (win) {
